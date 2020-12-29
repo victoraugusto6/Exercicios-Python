@@ -1,17 +1,15 @@
-lista = list()
-
+lista = [[], []]
+valor = 0
 for c in range(0, 7):
-    lista.append(int(input(f'Digite um valor na posição {c}º: ')))
+    valor = int(input(f'Digite o {c+1}º número: '))
+    if valor % 2 == 0:
+        lista[0].append(valor)
+    else:
+        lista[1].append(valor)
 
-lista.sort()
+lista[0].sort()
+lista[1].sort()
 
-print('Os valores pares da lista foram: ', end='')
-for c in lista:
-    if(c % 2) == 0:
-        print(f'{c}', end=' ')
+print(f'Os valores pares da lista foram: {lista[0]}')
 
-print('\nOs valores ímpares da lista foram: ', end='')
-for c in lista:
-    if(c % 2) != 0:
-        print(f'{c}', end=' ')
-print()
+print(f'Os valores ímpares da lista foram: {lista[1]}')

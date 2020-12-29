@@ -1,8 +1,6 @@
 e = 's'
 lista = list()
 dado = list()
-nomeMaior = list()
-nomeMenor = list()
 maiorP = menorP = 0
 
 while e == 's':
@@ -21,12 +19,13 @@ for p in lista:
     if(p[1] < menorP):
         menorP = p[1]
 
+print(f'\nAo todo, você cadastrou {len(lista)} pessoas')
+print(f'O maior peso foi de {maiorP} kg. Peso de ', end='')
 for p in lista:
     if p[1] == maiorP:
-        nomeMaior.append(p[0])
-    elif p[1] == menorP:
-        nomeMenor.append(p[0])
-
-print(f'\nAo todo, você cadastrou {len(lista)} pessoas')
-print(f'O maior peso foi de {maiorP} kg. Peso de {nomeMaior}')
-print(f'O menor peso foi de {menorP} kg. Peso de {nomeMenor}')
+        print(f'[{p[0]}]', end=' ')
+print(f'\nO menor peso foi de {menorP} kg. Peso de ', end='')
+for p in lista:
+    if p[1] == menorP:
+        print(f'[{p[0]}]', end=' ')
+print()
