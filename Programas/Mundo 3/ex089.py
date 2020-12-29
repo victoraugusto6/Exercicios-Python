@@ -1,6 +1,5 @@
 lista = list()
 alunos = list()
-e = 's'
 alunoN = 0
 
 while True:
@@ -21,12 +20,14 @@ print()
 print('-='*5)
 print('BOLETIM')
 print('-='*5)
-print('Nº   Nome    Média')
+print(f'{"Nº":<4}{"Nome":<10}{"Média":>8}')
 for i, aluno in enumerate(alunos):
     mediaAluno = (aluno[1]+aluno[2])/2
-    print(f'{i}   {aluno[0]}   {mediaAluno}')
+    print(f'{i:<4}{aluno[0]:<10}{mediaAluno:>8}')
 while alunoN != 999:
     alunoN = int(input('Mostrar notas de qual aluno? (999 interrompe) '))
     for i, aluno in enumerate(alunos):
         if(i == alunoN):
             print(f'Notas de {aluno[0]}: [{aluno[1]}, {aluno[2]}]')
+        else:
+            print('Aluno não encontrado na lista!')
