@@ -15,4 +15,3 @@ for c in lista:
     if(c % 2) != 0:
         print(f'{c}', end=' ')
 print()
-
