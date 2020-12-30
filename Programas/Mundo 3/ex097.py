@@ -7,3 +7,4 @@ def escreva(msg):
 
 escreva('Olá, Mundo!')
 escreva('Victor Augusto Soares de Oliveira')
+help(escreva)
