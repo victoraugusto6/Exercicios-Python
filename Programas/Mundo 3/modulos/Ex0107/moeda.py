@@ -16,7 +16,3 @@ def aumentando(v, p):
 def reduzindo(v, p):
     n = v - (v*(p/100))
     return n
-
-def moeda(s):
-    s = 
-    return s
