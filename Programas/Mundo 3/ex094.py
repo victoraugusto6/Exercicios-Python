@@ -1,47 +1,37 @@
-dados = dict()
 pessoas = list()
-mulheres = list()
+pessoa = dict()
 somaIdades = mediaIdades = 0
+
 while True:
-    dados['nome'] = input('Nome: ')
-    dados['sexo'] = input('Sexo [M/F]: ').lower()
-
-    while dados['sexo'] not in 'mf':
-        dados['sexo'] = input('Sexo [M/F]: ')
-    dados['idade'] = int(input('Idade: '))
-    pessoas.append(dados.copy())
-
-    if dados['sexo'] == 'f':
-        mulheres.append(dados.copy())
-
-    dados.clear()
-
-    e = input('Deseja continuar? [S/N] ')
-    if e == 'n':
+    pessoa.clear()
+    pessoa['nome'] = input('Nome: ')
+    while True:
+        pessoa['sexo'] = input('Sexo [M/F]: ').upper()[0]
+        if pessoa['sexo'] in 'MF':
+            break
+        print('ERRO! Por favor, digite apenas M ou F.')
+    pessoa['idade'] = int(input('Idade: '))
+    somaIdades += pessoa['idade']
+    pessoas.append(pessoa.copy())
+    while True:
+        e = input('Deseja continuar? [S/N] ').upper()[0]
+        if e in 'SN':
+            break
+        print('ERRO! Responda apenas S ou N. ')
+    if e == 'N':
         break
-print()
-print('-='*20)
-print(f'Foram cadastradas {len(pessoas)} pessoas')
-
-for p in pessoas:
-    for k, v in p.items():
-        if k == 'idade':
-            somaIdades += v
+print('-='*40)
+print(f'A) Ao todo temos {len(pessoas)} pessoas cadastradas.')
 mediaIdades = somaIdades/len(pessoas)
-print(f'A média de idade é: {mediaIdades:.2f}')
-
-print(f'Lista com as mulheres da lista: ', end='')
-for p in mulheres:
-    for k, v in p.items():
-        if k == 'nome':
-            print(f'{v} -', end=' ')
-print()
-
-print('Lista de pessoas com idade acima da média: ')
+print(f'B) A média de idade é de {mediaIdades:5.2f} anos.')
+print(f'C) As mulheres cadastras foram: ', end='')
 for p in pessoas:
-    for k, v in p.items():
-        if k == 'idade' and v > mediaIdades:
-            for k, v in p.items():
-                print(f' {k} = {v}', end='; ')
-print('\n<< ENCERRADO >>')
+    if p['sexo'] in 'F':
+        print(f'{p["nome"]}', end=' ')
 print()
+print('D) As pessoas com idade acima da média foram: ')
+for p in pessoas:
+    if p['idade'] >= mediaIdades:
+        print(
+            f'Nome: {p["nome"]}; Sexo: {p["sexo"]}; Idade: {p["idade"]}')
+print('<< ENCERRADO >>')
