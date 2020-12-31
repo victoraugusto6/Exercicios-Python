@@ -1,0 +1,3 @@
+Gustavo;50
+Victor;25
+Ana;15
