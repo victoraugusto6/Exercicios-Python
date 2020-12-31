@@ -1,3 +1,2 @@
-Gustavo;50
-Victor;25
+Victor;22
 Ana;15
